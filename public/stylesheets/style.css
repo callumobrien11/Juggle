@@ -1,0 +1,82 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#logo {
+  color: #fbc02d;
+  font-size: 40px;
+}
+
+#logo:hover {
+color: white;
+
+}
+
+#post {
+  color: black;
+}
+
+
+#task-posted {
+  padding: 20px;
+  border: solid black 2px; 
+  margin: 1px;
+  border-radius: 5px;
+}
+
+.welcome {
+  text-align: center;
+  color: #2bbbad;
+}
+
+.catagory {
+  font-size: 25px;
+  color: #EE6E73;
+  text-align: left;
+  font-weight: bold;
+}
+
+.name {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  padding-bottom: 20px;
+}
+
+#price-index {
+  font-size: 25px;
+  font-weight: bold;
+  text-align: right;
+  color: #2bbbad;
+  padding-right: 100px;
+}
+
+#price-show {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+#catagory-show {
+  font-weight: bold;
+}
+
+#name-show {
+  font-size: 100px;
+  font-weight: bold;
+}
+
+#details-show {
+  font-size: 50px;
+}
+
+.row {
+  display: flex;
+}
+
+
+

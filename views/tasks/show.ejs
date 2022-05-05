@@ -1,0 +1,17 @@
+<%- include('../partials/header') %>
+<section>
+    <form id="show-form" action="/tasks/send/<%=task.id%>" method="POST">
+    <div>
+    <h5 id="name-show"><%=task.createdBy.name%></h5>
+    <h5 id="catagory-show"><%=task.catagory%></h5>
+    <h5 id="details-show"><%=task.details%></h5>
+    <h5 id="price-show"> $ <%=task.price%></h5>
+    <label>Send the user an email to inquire</label>
+    <!-- <input type="email" name="email" placeholder="email"> -->
+    <label>Message</label>
+    <input type="text" name="message">
+    <button class="btn waves-effect waves-light" type="submit">Inquire</button>
+    </div>
+    </form>
+</section>
+<%- include('../partials/footer') %>

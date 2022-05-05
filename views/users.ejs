@@ -1,0 +1,20 @@
+<%- include('./partials/header') %>
+
+<% if (user === undefined) { %>
+    <h1 class="welcome"> Welcome to Juggle! </h1>
+    <h5 class="welcome">Please sign in with google to start</h5>
+<%} else { %>
+        <%task.forEach(function(t){ %>
+        <table id="task-posted">
+            <a href="/users/<%=t.id%>">
+            <h6 class="catagory"><%=t.catagory%></h6>
+            <h6 id="price-index"><%="$" + t.price%></h6>
+            <h6 class="name"><%=t.createdBy.name%></h6>
+            </a>
+            <hr>
+        </table>
+    <%})%>
+<%}%>
+
+<%- include('./partials/footer') %>
+
