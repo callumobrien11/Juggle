@@ -59,7 +59,7 @@ function sendEmail(req, res) {
     from: "juggle24327898@hotmail.com",
     to: task.createdBy.email,
     subject: "Juggle task accepted!",
-    text: `This email: ${req.user.email} Sent you this message: ${req.body.message}` 
+    text: `Please do not respond to this email. ${req.user.name} is interested in completeting your task. They sent you message saying: ${req.body.message}. To inquire further email them at ${req.user.email}.` 
   } 
   transporter.sendMail(options, function(err, info){
     if(err){
