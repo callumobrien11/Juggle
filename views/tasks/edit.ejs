@@ -1,0 +1,12 @@
+<%- include('../partials/header') %>
+<h4>Edit</h4>
+<form action="/tasks/<%=task._id%>?_method=PUT" method="POST">
+<lable>Catagory:</lable>
+<input type="text" name="catagory" value="<%=task.catagory%>">
+<lable>Details:</lable>
+<input type="text" name="details" value="<%=task.details%>">
+<lable>Price:</lable>
+<input type="number" name="price" value="<%=task.price%>">
+<input type="submit" value="Update task">
+</form>
+<%- include('../partials/footer') %>

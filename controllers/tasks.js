@@ -6,7 +6,10 @@ module.exports = {
     create,
     new: newEntry,
     show,
-    sendEmail
+    sendEmail,
+    delete: deleteTask,
+    edit,
+    update
 }
 
 
@@ -67,4 +70,23 @@ function sendEmail(req, res) {
     })
   })
   res.redirect('/users')
+}
+
+function deleteTask(req, res) {
+  Task.findByIdAndDelete(req.params.id, function(err, task){
+    console.log(task)
+    res.redirect('/users')
+  })
+}
+
+function edit(req, res) {
+  Task.findById(req.params.id, function(err, task){
+    res.render('tasks/edit', {user: req.user, task})
+  })
+}
+
+function update(req, res) {
+  Task.findByIdAndUpdate(req.params.id, req.body, function(err, task){
+    res.redirect('/users/' + req.params.id)
+  })
 }
