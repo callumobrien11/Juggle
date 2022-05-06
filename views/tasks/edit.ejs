@@ -1,12 +1,60 @@
-<%- include('../partials/header') %>
-<h4>Edit</h4>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user %></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+      <div>
+        <nav>
+          <div class="nav-wrapper">
+            <a href="" id="logo" class="brand-logo center">Juggle</a>
+            <ul class="row">
+                <% if (user) { %>
+                  <li class="column">
+                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                  </li>
+                <% } else { %>
+                    <a href="/auth/google"><i class="material-icons right">vpn_key</i>Login with Google</a>
+                <% } %>
+            </ul>
+          </div>
+        </nav>
+      </div>
+<h4>Edit Post</h4>
 <form action="/tasks/<%=task._id%>?_method=PUT" method="POST">
-<lable>Catagory:</lable>
-<input type="text" name="catagory" value="<%=task.catagory%>">
-<lable>Details:</lable>
-<input type="text" name="details" value="<%=task.details%>">
-<lable>Price:</lable>
-<input type="number" name="price" value="<%=task.price%>">
-<input type="submit" value="Update task">
+  <div class="row top-input">
+    <div class="input-field col s6">
+      <input type="text" name="catagory" value="<%=task.catagory%>" id="icon_prefix2" class="materialize-textarea">
+      <label for="icon_prefix2">catagory</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="text" name="details" id="icon_prefix2" value="<%=task.details%>" class="materialize-textarea">
+      <label for="icon_prefix2">details</label>
+    </div>
+  </div>
+  <div class="row">
+    <div class="input-field col s6">
+      <input type="number" name="price" id="icon_prefix2" value="<%=task.price%>" class="materialize-textarea">
+      <label for="icon_prefix2">Price</label>
+    </div>
+  </div>
+  <button class="btn waves-effect waves-light postBtn" type="submit">Update Task
+    <i class="material-icons right">send</i>
+  </button>
 </form>
-<%- include('../partials/footer') %>
+</body>
+</html>
+
+
+
+
+
+

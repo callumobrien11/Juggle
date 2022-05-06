@@ -1,20 +1,54 @@
-<%- include('./partials/header') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user %></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+      <div>
+        <nav>
+          <div class="nav-wrapper">
+            <a href="" id="logo" class="brand-logo center">Juggle</a>
+            <ul class="row">
+                <% if (user) { %>
+                  <li class="column">
+                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                  </li>
+                  <li class="column">
+                    <a href="tasks/new"><i class="large material-icons left">add_box</i>POST TASK</a>
+                  </li>
+                <% } else { %>
+                    <a href="/auth/google"><i class="material-icons right">vpn_key</i>Login with Google</a>
+                <% } %>
+            </ul>
+          </div>
+        </nav>
+      </div>
 
 <% if (user === undefined) { %>
     <h1 class="welcome"> Welcome to Juggle! </h1>
     <h5 class="welcome">Please sign in with google to start</h5>
 <%} else { %>
         <%task.forEach(function(t){ %>
-        <table id="task-posted">
+            <div>
             <a href="/users/<%=t.id%>">
-            <h6 class="catagory"><%=t.catagory%></h6>
-            <h6 id="price-index"><%="$" + t.price%></h6>
-            <h6 class="name"><%=t.createdBy.name%></h6>
-            </a>
-            <hr>
-        </table>
+                <ul class="collection">
+                    <li>
+                      <span class="catagory"><%=t.catagory%></span>
+                      <p> <i class="medium material-icons left">person</i><%=t.createdBy.name%> <br> </p>
+                        <p class="price-index"><%="$" + t.price%></p>
+                    </li>
+                </a>
+                <hr>
+            </div>
     <%})%>
 <%}%>
+</body>
+</html>
 
-<%- include('./partials/footer') %>
 

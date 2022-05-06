@@ -1,27 +1,57 @@
-<%- include('../partials/header') %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= user %></title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- Materialize CSS Framework -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="stylesheets/style.css" />
+  <!-- JavaScript for Materialize -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+      <div>
+        <nav>
+          <div class="nav-wrapper">
+            <a href="" id="logo" class="brand-logo center">Juggle</a>
+            <ul class="row">
+                <% if (user) { %>
+                  <li class="column">
+                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
+                  </li>
+                <% } else { %>
+                    <a href="/auth/google"><i class="material-icons right">vpn_key</i>Login with Google</a>
+                <% } %>
+            </ul>
+          </div>
+        </nav>
+      </div>
 <section>
     <div>
-    <h5 id="name-show"><%=task.createdBy.name%></h5>
-    <h5 id="catagory-show"><%=task.catagory%></h5>
-    <h5 id="details-show"><%=task.details%></h5>
-    <h5 id="price-show"> $ <%=task.price%></h5>
+        <ul class="collection with-header">
+            <li class="collection-header"><h4><%=task.catagory%></h4></li>
+            <li class="collection-item"><strong><%=task.createdBy.name%></strong></li>
+            <li class="collection-item"><strong>Details:</strong> <%=task.details%></li>
+            <li class="collection-item"><strong>$ <%=task.price%></strong></li>
+          </ul>
     <%console.log("user: " + user.id + "created by: " + task.createdBy.id)%>
     <% if (user.id === task.createdBy.id) { %>
     <!-- <form action="/users//edit" method="GET"> -->
-    <a href="/users/<%=task.id%>/edit"><button class="btn waves-effect waves-light" type="submit">EDIT POST</button></a>
+    <a href="/users/<%=task.id%>/edit"><button class="btn waves-effect waves-light edit-btn" type="submit">EDIT POST</button></a>
     <!-- </form>  -->
     <form action="/users/<%=task.id%>?_method=DELETE" method="POST">
-    <button class="btn waves-effect red" type="submit">DELETE POST</button>
+    <button id="delete-btn" class="btn waves-effect red" type="submit">DELETE POST</button>
     </form>
     <%} else {%>
     <form id="show-form" action="/tasks/send/<%=task.id%>" method="POST">
-    <label>Send the user an email to inquire</label>
     <!-- <input type="email" name="email" placeholder="email"> -->
-    <label>Message</label>
+    <label>Send <%=task.createdBy.name%> an email</label>
     <input type="text" name="message">
-    <button class="btn waves-effect waves-light" type="submit">Inquire</button>
+    <button class="btn waves-effect waves-light" type="submit"><i class="material-icons right">send</i>Email</button>
     </div>
     </form>
 <%}%>
 </section>
-<%- include('../partials/footer') %>
+</body>
+</html>
+

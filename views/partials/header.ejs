@@ -12,15 +12,15 @@
   <body>
       <div>
         <nav>
-          <div class="nav-wrapper accent-3">
+          <div class="nav-wrapper">
             <a href="" id="logo" class="brand-logo center">Juggle</a>
             <ul class="row">
                 <% if (user) { %>
                   <li class="column">
-                    <a href="/logout"><i class="material-icons right">trending_flat</i>Log Out</a>
+                    <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
                   </li>
                   <li class="column">
-                    <a href="tasks/new"><h6 id="post">post</h6></a>
+                    <a href="tasks/new"><i class="large material-icons left">add_box</i>POST TASK</a>
                   </li>
                 <% } else { %>
                     <a href="/auth/google"><i class="material-icons right">vpn_key</i>Login with Google</a>
